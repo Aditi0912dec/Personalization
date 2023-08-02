@@ -42,7 +42,7 @@ ________________________________________________________________________________
 2. upload the .bin  model file in the load fuction in the Custom.ipynb notebook
 3. Execute Attend-and-Excite/notebooks/Custom.ipynb to obtain the images.
 _________________________________________________________________________________________________________________________________
- Th model weights for some concepts are in Attend-and-Excite/weights/logs 
+ Th model weights for some concepts are in Attend-and-Excite/notebooks/weights/logs 
    
 
  
