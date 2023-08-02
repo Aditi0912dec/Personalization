@@ -22,7 +22,7 @@ ________________________________________________________________________________
 4. Add the parameter --repeat 100 to the file
 5. save the file
 
-6. If you are running in a10g the and --batch_size 2 in scripts/finetune_real.sh.
+6. If you are running in a10g then and --batch_size 2 in scripts/finetune_real.sh.
 7. Run the scripts/finetune_real.sh as per stated in the custom diffusion repository.
 
 8. To run the model without regularixation dataset for multiple concepts,make he same chnages as done for single concept in scripts/finetune_joint.sh
