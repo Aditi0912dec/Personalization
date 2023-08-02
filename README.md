@@ -15,31 +15,31 @@ In summary, our approach successfully maintains the fidelity of custom concepts 
 
 _____________________________________________________________________________________________________________________________________________________________________________
 # Fine tune the model using custom diffusion
-To generate custom concepts clone the custom diffusion repository:https://github.com/adobe-research/custom-diffusion
+1. To generate custom concepts clone the custom diffusion repository:https://github.com/adobe-research/custom-diffusion
 
-To run the model without regularization dataset follow the steps:
-1. Delete the parameters --reg_datapath and --reg_captions from scripts/finetune_real.sh
-2. Add the parameter --repeat 100 to the file
-3.save the file
+2. To run the model without regularization dataset follow the steps:
+3. Delete the parameters --reg_datapath and --reg_captions from scripts/finetune_real.sh
+4. Add the parameter --repeat 100 to the file
+5. save the file
 
-If you are running in a10g the and --batch_size 2 in scripts/finetune_real.sh.
-Run the scripts/finetune_real.sh as per stated in the custom diffusion repository.
+6. If you are running in a10g the and --batch_size 2 in scripts/finetune_real.sh.
+7. Run the scripts/finetune_real.sh as per stated in the custom diffusion repository.
 
-To run the model without regularixation dataset for multiple concepts,make he same chnages as done for single concept in scripts/finetune_joint.sh
+8. To run the model without regularixation dataset for multiple concepts,make he same chnages as done for single concept in scripts/finetune_joint.sh
 
 _________________________________________________________________________________________________________________
 # Convert .ckpt to .bin
 
-pip install accelerate
-pip install transformers>=4.25.1
-If the tranformer version is still below 4.25.1 the use pip install --upgrade transformers
-Now once the .ckpt files of the model parameters are obtained, we convert it to .bin using the following command:
-python src/convert.py --delta_ckpt <path-to-folder>/delta_model.ckpt --ckpt <path-to-model-v1-4.ckpt> --mode compvis-to-diffuser                  
+1. pip install accelerate
+2. pip install transformers>=4.25.1
+3. If the tranformer version is still below 4.25.1 the use pip install --upgrade transformers
+4. Now once the .ckpt files of the model parameters are obtained, we convert it to .bin using the following command:
+5. python src/convert.py --delta_ckpt <path-to-folder>/delta_model.ckpt --ckpt <path-to-model-v1-4.ckpt> --mode compvis-to-diffuser                  
 _________________________________________________________________________________________________________________________________
 
 # Run CD+AE
 1. upload the .bin  model file in the load fuction in the Custom.ipynb notebook
-2.Execute Custom.ipynb to obtain the images.
+2. Execute Attend-and-Excite/notebooks/Custom.ipynb to obtain the images.
 
  
  
