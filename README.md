@@ -1,4 +1,4 @@
-# Multi-Concepts
+# Custom Diffusion + Attend and Excite
 Low cost customization of stable diffusion model using custom diffusion along with attend and excite
 
 Personalization is a vital aspect for every organization as it allows them to create a distinct and unique identity for their products or services. Each company strives to develop a look and feel that sets them apart from competitors and cannot be easily replicated without permission. For instance, companies like Nike and Reebok market shoes, but their designs and aesthetics are markedly different and proprietary to each brand. These unique elements are crucial for establishing brand identity and attracting customers.
@@ -11,9 +11,35 @@ Furthermore, in cases where the prompt contains an association of an entity with
 
 The exclusion of regularization not only improves the image quality but also leads to a notable reduction in training time. Without the added constraints, the model can explore a broader range of variations efficiently, accelerating the overall generation process. 
 
-In summary, our approach successfully maintains the fidelity of custom concepts while ensuring accurate colour bindings, all without the need for a regularized dataset. This results in both improved image quality and reduced training time, making our method a powerful and efficient solution for custom concept generation. 
+In summary, our approach successfully maintains the fidelity of custom concepts while ensuring accurate colour bindings, all without the need for a regularized dataset. This results in both improved image quality and reduced training time, making our method a powerful and efficient solution for custom concept generation.
 
+_____________________________________________________________________________________________________________________________________________________________________________
+# Fine tune the model using custom diffusion
+To generate custom concepts clone the custom diffusion repository:https://github.com/adobe-research/custom-diffusion
 
+To run the model without regularization dataset follow the steps:
+1. Delete the parameters --reg_datapath and --reg_captions from scripts/finetune_real.sh
+2. Add the parameter --repeat 100 to the file
+3.save the file
+
+If you are running in a10g the and --batch_size 2 in scripts/finetune_real.sh.
+Run the scripts/finetune_real.sh as per stated in the custom diffusion repository.
+
+To run the model without regularixation dataset for multiple concepts,make he same chnages as done for single concept in scripts/finetune_joint.sh
+
+_________________________________________________________________________________________________________________
+# Convert .ckpt to .bin
+
+pip install accelerate
+pip install transformers>=4.25.1
+If the tranformer version is still below 4.25.1 the use pip install --upgrade transformers
+Now once the .ckpt files of the model parameters are obtained, we convert it to .bin using the following command:
+python src/convert.py --delta_ckpt <path-to-folder>/delta_model.ckpt --ckpt <path-to-model-v1-4.ckpt> --mode compvis-to-diffuser                  
+_________________________________________________________________________________________________________________________________
+
+# Run CD+AE
+1. upload the .bin  model file in the load fuction in the Custom.ipynb notebook
+2.Execute Custom.ipynb to obtain the images.
 
  
  
