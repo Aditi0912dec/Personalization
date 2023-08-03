@@ -38,9 +38,11 @@ ________________________________________________________________________________
 _________________________________________________________________________________________________________________________________
 
 # Run CD+AE
-1. Add ldm2 conda environmet to the kernal to run the ipython notebooks.
-2. upload the .bin  model file in the load fuction in the Custom.ipynb notebook
-3. Execute Attend-and-Excite/notebooks/Custom.ipynb to obtain the images.
+1. conda env create -f environment/environment.yaml
+2. conda activate ldm2
+3. Add ldm2 conda environmet to the kernal to run the ipython notebooks.
+4. upload the .bin  model file in the load fuction in the Custom.ipynb notebook
+5. Execute Attend-and-Excite/notebooks/Custom.ipynb to obtain the images.
 _________________________________________________________________________________________________________________________________
  Th model weights for some concepts are in Attend-and-Excite/notebooks/weights/logs 
    
